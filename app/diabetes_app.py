@@ -1,11 +1,14 @@
 import streamlit as st
 import joblib
+import os
 import numpy as np
 import pandas as pd
 
 # Load model and scaler
-model = joblib.load('diabetes_xgb_model.pkl')
-scaler = joblib.load('diabetes_scaler.pkl')
+model_path = os.path.join(os.path.dirname(__file__), '..', 'models', 'diabetes_xgb_model.pkl')
+model = joblib.load(model_path)
+scaler_path = os.path.join(os.path.dirname(__file__), '..', 'models', 'diabetes_scaler.pkl')
+scaler = joblib.load(scaler_path)
 
 # Custom CSS for styling
 st.markdown("""
